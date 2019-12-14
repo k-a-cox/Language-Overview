@@ -1,0 +1,125 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'S08clk'
+Slack : -16.713
+TNS   : -805.054
+
+Type  : Slow Model Setup 'clk50'
+Slack : -15.690
+TNS   : -5324.817
+
+Type  : Slow Model Setup 'sci:S08sci|baudgen[0]'
+Slack : -1.808
+TNS   : -17.528
+
+Type  : Slow Model Setup 'sci:S08sci|baudgen[2]'
+Slack : -1.153
+TNS   : -8.262
+
+Type  : Slow Model Setup 'sci:S08sci|baudgenA[5]'
+Slack : 0.251
+TNS   : 0.000
+
+Type  : Slow Model Hold 'clk50'
+Slack : -2.549
+TNS   : -8.934
+
+Type  : Slow Model Hold 'sci:S08sci|baudgenA[5]'
+Slack : -2.200
+TNS   : -6.150
+
+Type  : Slow Model Hold 'S08clk'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'sci:S08sci|baudgen[0]'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'sci:S08sci|baudgen[2]'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clk50'
+Slack : -2.000
+TNS   : -667.604
+
+Type  : Slow Model Minimum Pulse Width 'S08clk'
+Slack : -0.500
+TNS   : -63.000
+
+Type  : Slow Model Minimum Pulse Width 'sci:S08sci|baudgen[0]'
+Slack : -0.500
+TNS   : -14.000
+
+Type  : Slow Model Minimum Pulse Width 'sci:S08sci|baudgen[2]'
+Slack : -0.500
+TNS   : -13.000
+
+Type  : Slow Model Minimum Pulse Width 'sci:S08sci|baudgenA[5]'
+Slack : -0.500
+TNS   : -3.000
+
+Type  : Fast Model Setup 'S08clk'
+Slack : -6.794
+TNS   : -323.511
+
+Type  : Fast Model Setup 'clk50'
+Slack : -6.369
+TNS   : -2089.184
+
+Type  : Fast Model Setup 'sci:S08sci|baudgen[0]'
+Slack : -0.350
+TNS   : -1.633
+
+Type  : Fast Model Setup 'sci:S08sci|baudgen[2]'
+Slack : -0.064
+TNS   : -0.064
+
+Type  : Fast Model Setup 'sci:S08sci|baudgenA[5]'
+Slack : 0.641
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk50'
+Slack : -1.591
+TNS   : -5.921
+
+Type  : Fast Model Hold 'sci:S08sci|baudgenA[5]'
+Slack : -1.341
+TNS   : -3.863
+
+Type  : Fast Model Hold 'S08clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'sci:S08sci|baudgen[0]'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'sci:S08sci|baudgen[2]'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clk50'
+Slack : -2.000
+TNS   : -667.604
+
+Type  : Fast Model Minimum Pulse Width 'S08clk'
+Slack : -0.500
+TNS   : -63.000
+
+Type  : Fast Model Minimum Pulse Width 'sci:S08sci|baudgen[0]'
+Slack : -0.500
+TNS   : -14.000
+
+Type  : Fast Model Minimum Pulse Width 'sci:S08sci|baudgen[2]'
+Slack : -0.500
+TNS   : -13.000
+
+Type  : Fast Model Minimum Pulse Width 'sci:S08sci|baudgenA[5]'
+Slack : -0.500
+TNS   : -3.000
+
+------------------------------------------------------------

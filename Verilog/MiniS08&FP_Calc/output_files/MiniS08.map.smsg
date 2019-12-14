@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at MiniS08starter.v(15): object "ldA" differs only in case from object "lda" in the same scope
+Info (10281): Verilog HDL Declaration information at MiniS08starter.v(15): object "ldX" differs only in case from object "ldx" in the same scope
+Info (10281): Verilog HDL Declaration information at MiniS08starter.v(15): object "ldHX" differs only in case from object "ldhx" in the same scope
+Info (10281): Verilog HDL Declaration information at MiniS08starter.v(19): object "aiX" differs only in case from object "aix" in the same scope

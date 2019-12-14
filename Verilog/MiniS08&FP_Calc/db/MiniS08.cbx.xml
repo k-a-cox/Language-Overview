@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="MiniS08">
+		<CBX_INST_ENTRY INSTANCE_NAME="|MiniS08|ram:S08ram|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_cra1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MiniS08|rom2:S08rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_pl81.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
