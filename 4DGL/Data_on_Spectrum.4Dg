@@ -1,0 +1,168 @@
+#platform "Gen4-uLCD-43DCT-CLB"
+
+
+// Program Skeleton 1.3 generated 10/14/2019 9:42:24 PM
+
+#inherit "4DGL_16bitColours.fnc"
+
+#inherit "VisualConst.inc"
+
+#inherit "Data_on_SpectrumConst.inc"
+
+#constant len 65
+var frame[len+1];
+var buffer[500];
+var max := 1, min := -1, length;
+
+func updateBounds(var new)
+    if(new > max)  max := new;
+    if(new < min)  min := new;
+    length := max-min;
+endfunc
+
+func modifySpectrum(var bar,var myFrame)
+
+    // Spectrum2 1.0 generated 11/19/2019 6:56:13 PM
+    img_SetWord(hndl, iiSpectrum2, IMAGE_XPOS, 40 + bar * 6) ; // where bar is 0 to 64
+    img_SetWord(hndl, iiSpectrum2, IMAGE_INDEX, myFrame) ; // where frame is 0 to 100 (for a displayed 0 to 100)
+    img_Show(hndl,iiSpectrum2) ;
+
+endfunc
+
+func cycleBuffer()
+    var i := 0,offset,temp[2];
+    while (i < len)
+        frame[i] := frame[i+1];
+        umul_1616(temp,frame[i]-min,100);
+        udiv_3232(temp,temp,length);
+        offset := temp[0];
+        modifySpectrum(i,offset);
+        i++;
+    wend
+    modifyLabels();
+endfunc
+
+func initializeTexts()
+
+    // Label5 1.0 generated 11/14/2019 8:53:13 AM
+    txt_FGcolour(WHITE) ;
+    txt_BGcolour(BLACK) ;
+    putstrXY(70,10,"Real Time Monitoring of the Surface Height") ;
+
+    // Label2 1.0 generated 11/19/2019 9:21:59 AM
+    gfx_MoveTo(435, 136) ;
+    putstr("Curr") ;
+
+    // Label3 1.0 generated 11/14/2019 9:09:11 AM
+    gfx_MoveTo(435, 73) ;
+    putstr("High") ;
+
+    // Label4 1.0 generated 11/14/2019 9:09:43 AM
+    gfx_MoveTo(435, 204) ;
+    putstr("Low") ;
+
+    // Label1 1.0 generated 11/14/2019 8:54:17 AM
+    gfx_MoveTo(20, 12) ;
+    putstr("") ;
+
+endfunc
+
+func modifyLabels()
+    gfx_MoveTo(435, 136); //Label 2
+    print((max+min)/2, "                  ");
+
+    gfx_MoveTo(435,73); //Label 3
+    print(max,"               ");
+
+    gfx_MoveTo(435,204); //Label 4
+    print(min,"               ");
+
+endfunc
+
+func main()
+//  var hstrings ; // Handle to access uSD strings, uncomment if required
+//  var hFontx ;   // Handle to access uSD fonts, uncomment if required and change n to font number
+//  Uncomment the following if uSD images, fonts or strings used.
+
+    // Form1 1.1 generated 10/14/2019 10:00:22 PM
+
+    putstr("Mounting...\n");
+    if (!(file_Mount()))
+        while(!(file_Mount()))
+            putstr("Drive not mounted...");
+            pause(200);
+            gfx_Cls();
+            pause(200);
+        wend
+    else
+         gfx_Cls();
+    endif
+//    gfx_TransparentColour(0x0020);    // uncomment if transparency required
+//    gfx_Transparency(ON);             // uncomment if transparency required
+
+//  hFontn := file_LoadImageControl("Data_on_.dan", "Data_on_.gcn", 1); // Open handle to access uSD fonts, uncomment if required and change n to font number dropping a and c if > 9
+//  hstrings := file_Open("Data_on_.txf", 'r') ; // Open handle to access uSD strings, uncomment if required
+    hndl := file_LoadImageControl("Data_on_.dat", "Data_on_.gci", 1);
+
+    // Form1 1.1 generated 10/14/2019 9:59:09 PM
+
+
+    gfx_Set(SCREEN_MODE,LANDSCAPE_R) ;
+    length[1] := 0;
+    var bar:=0;
+
+    // Spectrum1 1.0 generated 10/14/2019 10:02:16 PM
+    img_Show(hndl,iSpectrum2) ; // show initial spectrum
+
+
+    initializeTexts();
+
+    //setbaud(BAUD_115200); //to change if not 115200 BAUD
+    com_Init(buffer, 500, 0);
+
+    var temp := 6;
+    var num := 0;
+    repeat
+
+    var NaN := 0,neg := 0,init := 0;
+    if(com_Count()>0) //& com_Count() == 0
+            temp := serin();
+             if(init == 0)
+                if(temp == '\n')
+                    init := 1;
+                else
+                    init := 0;
+                endif
+            else if(isdigit(temp)&&(NaN == 0))
+                num := num*10 + temp - '0';
+            else if(temp == '\n')
+                if(neg == 1)
+                    num *= -1;
+                    neg := 0;
+                endif
+
+                if (NaN == 0)
+                    frame[len] := num;
+                    updateBounds(num);
+                    num := 0;
+                    cycleBuffer();
+                else if (NaN == 1)
+                    NaN := 0;
+                endif
+            else if(temp == '-' && num == 0)
+                neg := 1;
+            else
+                if(NaN == 0)
+                    putstrXY(100,256,"                                                                      ");
+                    gfx_MoveTo(100,256);
+                    NaN := 1;
+                endif
+                putch(temp);
+            endif
+    endif
+
+
+
+    forever
+endfunc
+

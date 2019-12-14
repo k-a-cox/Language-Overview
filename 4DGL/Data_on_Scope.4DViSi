@@ -1,0 +1,91 @@
+﻿Version     0.0
+Platform    Gen4-uLCD-43DCT-CLB-L
+PlatRes     272x480
+Depends
+end
+Options
+    Visualizer
+    Speed                        9600
+    Checksum                     No
+    ResponseSize                 2
+    Multidrop                    No
+    Destination                  1
+    DestBank                     0
+    MainForm                     0
+    SndBuf                       0
+    ButtonDisable                No
+    SignedDigits                 No
+end
+Form
+    Name                         Form1
+    Alias                        Form1
+    Bgtype                       Color
+    Color                        BLACK
+    Image                        (None)
+    Source.Height                0
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 0
+    OnActivate                   ''
+    OnCreate                     ''
+    OnRepeat                     ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+Scope
+    Name                         Scope1
+    Alias                        Scope1
+    Color                        BLACK
+    GraticuleColor               0x005100
+    GraticuleVisible             Yes
+    GraticuleXinc                10
+    GraticuleYinc                10
+    Height                       249
+    Left                         45
+    RefreshIncrement             10
+    Top                          0
+    Trace1Color                  LIME
+    Trace2Color                  BLUE
+    Trace3Color                  RED
+    Trace4Color                  FUCHSIA
+    Traces                       1
+    Width                        418
+    Xmag                         0
+    Yamp                         100
+    YLine                        125
+    YLineColor                   YELLOW
+    YLineVisible                 Yes
+    Yoffset                      0
+end
+Scale
+    Name                         Scale1
+    Alias                        Scale1
+    Alignment                    Center
+    Color                        BLACK
+    Digits                       3
+    Font.Color                   GREEN
+    Font.Effects                 []
+    Font.Name                    Arial
+    Font.Size                    7
+    Font.Style                   []
+    Height                       249
+    Layout                       Center
+    LeadingZero                  No
+    Left                         4
+    Maxvalue                     100
+    Minvalue                     -100
+    Orientation                  Vertical
+    PeakColor                    LIME
+    PeakLevel                    -5000
+    Scalecolor                   LIME
+    ScaleOffset                  4
+    ShowSign                     Yes
+    TickMarks                    None
+    Ticks                        10
+    TicksHeight                  5
+    TicksWidth                   1
+    Top                          0
+    Transparent                  No
+    Width                        44
+end
